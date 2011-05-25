@@ -1,0 +1,236 @@
+{% extends 'home/base_home.html' %}
+{% load media %}
+{% include_media "main.js" %}
+
+{% block style %}
+	.task-section {
+		width: 458px;
+		padding: 5px 0px 0 0px;
+		border: 1px dotted #CCC;
+		margin: 10px 0 0 0;
+		margin-top: 10px;
+		float: left;
+	}
+	.task-section h1 {
+		float: left;
+		margin-left: 10px;
+	}
+	.task-list {
+		margin-top: 35px;
+	}
+	button {
+		background-color: #FFF;
+		height: 27px;
+		border: 1px solid gray;
+		color: #000;
+		font-family: 'Myriad Pro', sans-serif;
+		font-size: 1em;
+		cursor: pointer;
+	}
+	button[type=task] {
+		float: right;
+		margin-right: 10px;
+		width: 80px;
+		margin-top: 10px;
+	}
+	button[type=task]:hover {
+		background-color: #CCC;
+	}
+	.task-list li.task-bar {
+		clear: both;
+		margin-top: 0px;
+		height: 35px;
+		width: 100%;
+		list-style-type: none;
+		position: relative;
+		border-top: 1px dotted #CCC;
+
+	}
+	.task-list li.claimed {
+		color: gray;
+		background-color: #ccc;
+	}
+	.task-list li[type=yours]:hover {
+		background-color: #FFFAC3;
+	}
+	.task-list li .checkbox {
+		height: 30px;
+		width: 27px;
+		float: left;
+		margin-left: 7px;
+		margin-top: -2px;
+		cursor: pointer;
+		background-image: url("{% media_url "images/box-unchecked.png" %}");
+	}
+	.task-list li .checkbox.checked{
+		background-image: url("{% media_url "images/box-checked.png" %}");
+	}
+	.task-list li .pref-icon {
+		float: left;
+		padding-top: 8px;
+	}
+	.task-list li .task-content {
+		float: left;
+		margin-left: 5px;
+		font-family: 'Myriad Pro', sans-serif;
+		font-size: 1em;
+		line-height: 35px;
+		cursor: pointer;
+	}
+
+	.task-list li .task-content input[type=text] {
+		float: left;
+		font-family: 'Myriad Pro', sans-serif;
+		font-size: 1em;
+		margin-top: 7px;
+		margin-left: -2px;
+		line-height: 35px;
+		border: 1px dotted #CCC;
+		width: 350px;
+	}
+	.task-bar button[type=claim] {
+		margin: 0;
+		border: none;
+		border-right: 1px dotted #CCC;
+		height: 35px;
+		width: 80px;
+		float: left;
+		margin-right: 10px;
+	}
+	button[type=claim]:hover {
+		background-color:#EEE;
+		z-index: 800;
+		cursor: pointer;
+	}
+	button[value=off] {
+		background-color: #FFF;
+		-moz-box-shadow:0;
+		-webkit-box-shadow:0;
+		box-shadow:0;
+	}
+	li.task-bar div.pref-icon {
+		margin-left: 15px;
+	}
+
+/***************************/
+/* PER-TASK REMOVAL BUTTON */
+/***************************/
+	li.task-bar div.remove-task {
+		position: absolute;
+		width: 20px;
+		height: 15px;
+		font-weight: bold;
+		cursor: pointer;
+		color: #FFF;
+		top: 10px;
+		background-color: pink;
+		line-height: 15px;
+		border: 1px dotted red;
+	}
+	li.task-bar div.remove-task:hover {
+		color: #FFF;
+		border: 1px dotted red;
+	}
+	/* Individual Task Removal Button (Your Tasks) */
+		div#your-tasks li.task-bar div.remove-task {
+			left: -21px;
+			border-right: 0;
+		}
+	/* Individual Task Removal Button (Shared Tasks) */
+		div#shared-tasks li.task-bar div.remove-task {
+			right: -21px;
+			border-left: 0;
+		}
+	li.task-bar div.remove-task .minus {
+		width: 8px;
+		height: 3px;
+		background-color: white;
+		margin-top: 5px;
+	}
+	.button-ON {
+		background-color: #EEE;
+		-moz-box-shadow: inset 0px 0px 3px #aaaaaa;
+		webkit-box-shadow: inset 0px 0px 3px #aaaaaa;
+		box-shadow: inset 0px 0px 3px #aaaaaa;
+	}
+	
+	div#debug {
+		width: 80%;
+		padding: 10px;
+		background-color: #FFFFCC;
+		margin: 10px auto;
+		clear: both;
+	}
+{% endblock %}
+
+{% block contentMain %}
+	<!--<div id="debug"></div>-->
+	<div id="your-tasks" class="task-section queue">
+		<h1>Your Task Queue</h1>
+		<button class="button" type="task" action="add" >+ task</button>&nbsp;<button class="button" type="task" action="remove" value="off">- task</button>
+		<div class="task-list" style="">
+			
+			<li class="task-bar" type="yours">
+				<div class="remove-task" value="off"></div>
+				<!--<div class="pref-icon" value="1"></div> -->
+				<div class="checkbox"></div>
+				<div class="task-content">
+					Pet the dog
+				</div>
+			</li>
+			<li class="task-bar" type="yours">
+				<div class="remove-task" value="off"></div>
+				<!--<div class="pref-icon" value="1"></div>-->
+				<div class="checkbox"></div>
+				<div class="task-content">
+					Clean the side of the house
+				</div>
+			</li>
+			<li class="task-bar" type="yours">
+				<div class="remove-task" value="off"></div>
+				<!--<div class="pref-icon" value="1"></div>-->
+				<div class="checkbox"></div>
+				<div class="task-content">
+					Vacuum the living room carpet
+				</div>
+			</li>
+		</div>
+	</div>
+	<div id="shared-tasks" class="task-section" style="float: right; margin-right: -18px; margin-right: 0;">
+		<h1>Shared Tasks</h1>
+		<button class="button" type="task" action="add">+ task</button>&nbsp;<button class="button" type="task" action="remove" value="off">- task</button>
+		<div class="task-list" style="">
+			<li class="task-bar" type="shared">
+				<div class="remove-task" value="off"></div>
+				<button class="button claim" type="claim">claim</button>
+				<div class="task-content">
+					Place snake in roommates bed
+				</div>
+			</li>
+			<li class="task-bar" type="shared">
+				<div class="remove-task" value="off"></div>
+				<button class="button claim" type="claim">claim</button>
+				<div class="task-content">
+					Change the lock
+				</div>
+			</li>
+			<li class="task-bar" type="shared">
+				<div class="remove-task" value="off"></div>
+				<button class="button claim" type="claim">claim</button>
+				<div class="task-content">
+					Drink all roommate milk
+				</div>
+			</li>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block endScripts %}
+	//init_pref_icons(null);
+	init_checkboxes(null);
+	init_content_edits(null);
+	init_claim_button(null);
+	init_task_remove_buttons(null);
+	init_add_remove_task_buttons();
+{% endblock %}

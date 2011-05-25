@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+<!-- This is the Tenant's Home -->
+{% load media %}
+{% include_media 'main.js' %}
+{% include_media 'front.css' %}
+
+{% block scripts %}
+{% endblock %}
+{% block style %}
+	<style type="text/css">
+		div#right-nav {
+			width: 0%;
+		}
+		div#center {
+			width: 100%;
+		}
+	</style>
+{% endblock %}
+{% block topRight %}
+	<li><a href="/account/"><strong>jlsphar</strong></a>&nbsp;|&nbsp;</li>
+	<li><a href="/help/"><strong>Help</strong></a>&nbsp;|&nbsp;</li>
+	<li><a href="/logout/"><strong>Logout</strong></a></li>
+{% endblock %}
+{% block nav %}
+	<nav>
+		<li><a href="#">Home</a></li>
+		<li><a href="/tasks/">Tasks</a></li>
+		<li><a href="/events/">Events</a></li>
+		<!--<li><a href="/calendar/">Calendar</a></li>-->
+		<!--<li><a href="/roommates">Roomies</a></li>-->
+		<!--<li><a href="/landlord/">Landlord</a></li>-->
+		<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+	</nav>
+{% endblock %}
+{% block topCenter %}
+{% endblock %}
+{% block contentMain %}
+	<div id="homeCalendar">
+		<div id="week-1" class="week">
+			<div class="day" id="day-1-week-1">
+				<span class="date today">Today</span>
+				<div class="event">Take out the trash</div>
+			</div>
+			<div class="day" id="day-2-week-1">
+				<span class="date">14</span>
+			</div>
+			<div class="day" id="day-3-week-1">
+				<span class="date">15</span>
+				<div class="event">Landlord visit @ 4pm</div>
+			</div>
+			<div class="day" id="day-4-week-1">
+				<span class="date">16</span>
+			</div>
+			<div class="day" id="day-5-week-1">
+				<span class="date">17</span>
+				<div class="event">Quiet time from 1:30pm - 3:00pm</div>
+			</div>
+			<div class="day" id="day-6-week-1">
+				<span class="date">18</span>
+			</div>
+			<div class="day" id="day-7-week-1">
+				<span class="date">19</span>
+				<div class="event">This is an example event</div>
+			</div>
+		</div>
+		<div id="week-2" class="week">
+			<div class="day" id="day-1-week-2">
+				<span class="date">20</span>
+				<div class="event">This is an example event</div>
+			</div>
+			<div class="day" id="day-2-week-2">
+				<span class="date">21</span>
+			</div>
+			<div class="day" id="day-3-week-2">
+				<span class="date">22</span>
+			</div>
+			<div class="day" id="day-4-week-2">
+				<span class="date">23</span>
+			</div>
+			<div class="day" id="day-5-week-2">
+				<span class="date">24</span>
+			</div>
+			<div class="day" id="day-6-week-2">
+				<span class="date">25</span>
+			</div>
+			<div class="day" id="day-7-week-2">
+				<span class="date">26</span>
+			</div>
+		</div>
+	</div>
+	<div style="width: 660px; float: left; clear: left; display: block;">
+		<div class="message" style="height: 100px; margin-top: 20px;">
+			<div class="pic" style="margin-top: 15px; float: left;">
+				<img src={% media_url 'images/christina.png' %} />
+			</div>
+			<div class="message-icon" style="width: 25px; height: 25px; border: 1px solid red; margin-top: 35px; float: left; margin-left: 15px;">
+				
+			</div>
+			<div class="message-content" style="float: left; height: 100px; margin-left: 20px;">
+				<h2>Colin Crispin completed "Take out the trash"</h2><br />
+				<a href="#" style="color: green;"><img src={% media_url 'images/thumbs_up.png' %} />&nbsp;Thumbs Up</a>&nbsp;&nbsp;<a href="#"><img style="padding-top: 3px;" src={% media_url 'images/thumbs_down.png' %} />&nbsp;Thumbs Down</a>
+			</div>
+		</div>
+		<div class="message" style="height: 100px; margin-top: 20px;">
+			<div class="pic" style="margin-top: 15px; float: left;">
+				<img src={% media_url 'images/lisa.png' %} />
+			</div>
+			<div class="message-icon" style="width: 35px; height: 35px; margin-top: 20px; float: left; margin-left: 15px;">
+				<img src={% media_url 'images/grocery-icon.png' %} />
+			</div>
+			<div class="message-content" style="float: left; height: 100px; margin-left: 40px;">
+				<h2>Mike Dunscomb shared 2% milk</h2><br />
+				<a href="#" style="color: green;"><img src={% media_url 'images/thumbs_up.png' %} />&nbsp;Thumbs Up</a>&nbsp;&nbsp;<a href="#"><img style="padding-top: 3px;" src={% media_url 'images/thumbs_down.png' %} />&nbsp;Thumbs Down</a>
+			</div>
+		</div>
+		<div class="message" style="height: 100px; margin-top: 20px;">
+			<div class="pic" style="margin-top: 15px; float: left;">
+				<img src={% media_url 'images/jeff.png' %} />
+			</div>
+			<div class="message-icon" style="width: 25px; height: 25px; border: 1px solid red; margin-top: 35px; float: left; margin-left: 15px;">
+				
+			</div>
+			<div class="message-content" style="float: left; height: 100px; margin-left: 20px;">
+				<h2>Andrew Blansfield contacted the landlord</h2><br />
+				<a href="#" style="color: green;"><img src={% media_url 'images/thumbs_up.png' %} />&nbsp;Thumbs Up</a>&nbsp;&nbsp;<a href="#"><img style="padding-top: 3px;" src={% media_url 'images/thumbs_down.png' %} />&nbsp;Thumbs Down</a>
+			</div>
+		</div>
+	</div>
+	<div style="float: right; width: 260px; margin: 10px 10px 10px 0; display: inline;">
+		<!-- Facebook like begin
+		<fb:like href="https://www.facebook.com/pages/TenantryNet/125538604190236" width="260" show_faces="false" class=" fb_edge_widget_with_comment fb_iframe_widget">
+		
+		</fb:like> Facebook like end -->
+		<div style="width: 260; border: 1px solid gray; padding: 0px; background-color: gray; color: #FFF; height: 50px; text-align: center; line-height: 48px; font-weight: bold; cursor: pointer;">
+			Start Work >>
+		</div>
+		<!-- AddThis BEGIN
+		<a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;pubid=ra-4dd436231d8674e8"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+		<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+		<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4dd436231d8674e8"></script>
+		AddThis END -->
+	</div>
+
+{% endblock %}
+
+{% block rightNav %}
+{% endblock %}
+
+{% block endScripts %}
+	<script type="text/javascript">
+		cal_width = $("#homeCalendar").width();
+		var _TWoD = new Array()
+		var _TWoDwC = new Array()
+		var _TWoDwoC = new Array()
+		function TWoD(){
+			var week1 = 0;
+			var week2 = 0;
+			$("#week-1").children(".day").each(function(){
+				week1 += parseInt($(this).css('width'));
+			});
+			$("#week-2").children(".day").each(function(){
+				week2 += parseInt($(this).css('width'));
+			});
+			var result = new Array();
+			result[0] = week1;
+			result[1] = week2;
+			return result;
+		}
+		function TWoDwC(){
+			var week1 = 0;
+			var week2 = 0;
+			$("#week-1").children(".day").each(function(){
+				if ($(this).find(".event").length != 0){
+					week1 += parseInt($(this).css('width'));
+				}
+			});
+			$("#week-2").children(".day").each(function(){
+				if ($(this).find(".event").length != 0){
+					week2 += parseInt($(this).css('width'));
+				}
+			});
+			var result = new Array();
+			result[0] = week1;
+			result[1] = week2;
+			return result;
+		}
+		function TWoDwoC(){
+			var week1 = 0;
+			var week2 = 0;
+			$("#week-1").children(".day").each(function(){
+				if ($(this).find(".event").length == 0){
+					week1 += parseInt($(this).css('width'));
+				}
+			});
+			$("#week-2").children(".day").each(function(){
+				if ($(this).find(".event").length == 0){
+					week2 += parseInt($(this).css('width'));
+				}
+			});
+			var result = new Array();
+			result[0] = week1;
+			result[1] = week2;
+			return result;
+		}
+		_TWoD = TWoD();
+		_TWoDwC = TWoDwC();
+		_TWoDwoC = TWoDwoC();
+		var _NoDwCW1 = $('#week-1').find('.event').length;
+		var _NoDwCW2 = $('#week-2').find('.event').length;
+		var _NoDwoCW1 = 7 - _NoDwCW1;
+		var _NoDwoCW2 = 7 - _NoDwCW2;
+		if((parseInt(_TWoDwC[0]) + parseInt(_TWoDwoC[0])) <= 940){
+			var RWW1 = 933 - parseInt(_TWoDwC[0]);
+			setto1 = Math.round(RWW1 / _NoDwoCW1);
+			$("#week-1").children(".day").each(function(){
+				if($(this).find('.event').length == 0){
+					$(this).css('width', setto1);
+				}
+			});
+		}
+		if((parseInt(_TWoDwC[1]) + parseInt(_TWoDwoC[1])) <= 940){
+			var RWW2 = 933 - parseInt(_TWoDwC[1]);
+			setto2 = Math.round(RWW2 / _NoDwoCW2);
+			$("#week-2").children(".day").each(function(){
+				if($(this).find('.event').length == 0){
+					$(this).css('width', setto2);
+				}
+			});
+		}
+		difference = parseInt($("#week-1").css('width')) - parseInt($("#week-2").css('width'));
+		todays_width = $(".today").css('width');
+		$(".today").css('padding-left', difference);
+	</script>
+{% endblock %}
