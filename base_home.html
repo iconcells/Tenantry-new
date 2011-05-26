@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
 <!-- This is the Tenant's Home -->
-{% load media %}
-{% include_media 'main.js' %}
-{% include_media 'front.css' %}
-
 {% block scripts %}
 {% endblock %}
+
 {% block style %}
+	<link href="css/base_home.css" rel="stylesheet" type="text/css" />
 	<style type="text/css">
 		div#right-nav {
 			width: 0%;
@@ -16,11 +14,16 @@
 		}
 	</style>
 {% endblock %}
+
+{% block extraStyle %}
+{% endblock %}
+
 {% block topRight %}
 	<li><a href="/account/"><strong>jlsphar</strong></a>&nbsp;|&nbsp;</li>
 	<li><a href="/help/"><strong>Help</strong></a>&nbsp;|&nbsp;</li>
 	<li><a href="/logout/"><strong>Logout</strong></a></li>
 {% endblock %}
+
 {% block nav %}
 	<nav>
 		<li><a href="#">Home</a></li>
@@ -32,8 +35,10 @@
 		<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 	</nav>
 {% endblock %}
+
 {% block topCenter %}
 {% endblock %}
+
 {% block contentMain %}
 	<div id="homeCalendar">
 		<div id="week-1" class="week">
@@ -91,38 +96,38 @@
 	<div style="width: 660px; float: left; clear: left; display: block;">
 		<div class="message" style="height: 100px; margin-top: 20px;">
 			<div class="pic" style="margin-top: 15px; float: left;">
-				<img src={% media_url 'images/christina.png' %} />
+				<img src='images/christina.png' />
 			</div>
 			<div class="message-icon" style="width: 25px; height: 25px; border: 1px solid red; margin-top: 35px; float: left; margin-left: 15px;">
 				
 			</div>
 			<div class="message-content" style="float: left; height: 100px; margin-left: 20px;">
 				<h2>Colin Crispin completed "Take out the trash"</h2><br />
-				<a href="#" style="color: green;"><img src={% media_url 'images/thumbs_up.png' %} />&nbsp;Thumbs Up</a>&nbsp;&nbsp;<a href="#"><img style="padding-top: 3px;" src={% media_url 'images/thumbs_down.png' %} />&nbsp;Thumbs Down</a>
+				<a href="#" style="color: green;"><img src='images/thumbs_up.png' />&nbsp;Thumbs Up</a>&nbsp;&nbsp;<a href="#"><img style="padding-top: 3px;" src='images/thumbs_down.png' />&nbsp;Thumbs Down</a>
 			</div>
 		</div>
 		<div class="message" style="height: 100px; margin-top: 20px;">
 			<div class="pic" style="margin-top: 15px; float: left;">
-				<img src={% media_url 'images/lisa.png' %} />
+				<img src='images/lisa.png' />
 			</div>
 			<div class="message-icon" style="width: 35px; height: 35px; margin-top: 20px; float: left; margin-left: 15px;">
-				<img src={% media_url 'images/grocery-icon.png' %} />
+				<img src='images/grocery-icon.png' />
 			</div>
 			<div class="message-content" style="float: left; height: 100px; margin-left: 40px;">
 				<h2>Mike Dunscomb shared 2% milk</h2><br />
-				<a href="#" style="color: green;"><img src={% media_url 'images/thumbs_up.png' %} />&nbsp;Thumbs Up</a>&nbsp;&nbsp;<a href="#"><img style="padding-top: 3px;" src={% media_url 'images/thumbs_down.png' %} />&nbsp;Thumbs Down</a>
+				<a href="#" style="color: green;"><img src='images/thumbs_up.png' />&nbsp;Thumbs Up</a>&nbsp;&nbsp;<a href="#"><img style="padding-top: 3px;" src='images/thumbs_down.png'/>&nbsp;Thumbs Down</a>
 			</div>
 		</div>
 		<div class="message" style="height: 100px; margin-top: 20px;">
 			<div class="pic" style="margin-top: 15px; float: left;">
-				<img src={% media_url 'images/jeff.png' %} />
+				<img src='images/jeff.png' />
 			</div>
 			<div class="message-icon" style="width: 25px; height: 25px; border: 1px solid red; margin-top: 35px; float: left; margin-left: 15px;">
 				
 			</div>
 			<div class="message-content" style="float: left; height: 100px; margin-left: 20px;">
 				<h2>Andrew Blansfield contacted the landlord</h2><br />
-				<a href="#" style="color: green;"><img src={% media_url 'images/thumbs_up.png' %} />&nbsp;Thumbs Up</a>&nbsp;&nbsp;<a href="#"><img style="padding-top: 3px;" src={% media_url 'images/thumbs_down.png' %} />&nbsp;Thumbs Down</a>
+				<a href="#" style="color: green;"><img src='images/thumbs_up.png' />&nbsp;Thumbs Up</a>&nbsp;&nbsp;<a href="#"><img style="padding-top: 3px;" src='images/thumbs_down.png'/>&nbsp;Thumbs Down</a>
 			</div>
 		</div>
 	</div>
@@ -147,7 +152,19 @@
 {% endblock %}
 
 {% block endScripts %}
-	<script type="text/javascript">
+	/*
+		Javascript for the Home 2-week calendar
+		
+		TWoD = Total Width of Days
+		TWoDwC = Total Width of Days with Content
+		TWoDwoC = Total Width of Days without Content
+		NoDwCW1 = Number of Days with Content in Week 1
+		
+		bugs:
+			- width of weeks are not the same due to division
+				> potential fix: add space to other, days
+		
+	*/
 		cal_width = $("#homeCalendar").width();
 		var _TWoD = new Array()
 		var _TWoDwC = new Array()
@@ -230,5 +247,4 @@
 		difference = parseInt($("#week-1").css('width')) - parseInt($("#week-2").css('width'));
 		todays_width = $(".today").css('width');
 		$(".today").css('padding-left', difference);
-	</script>
 {% endblock %}

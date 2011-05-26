@@ -19,18 +19,18 @@ class MainPage(webapp.RequestHandler):
 		  url = users.create_login_url(self.request.uri)
 		  url_linktext = 'Login'
 			
-		template_data = {
+		template_values = {
 			'url': url,
 			'url_linktext': url_linktext,
 			}
 		
-		path = os.path.join(os.path.dirname(__file__), 'index.html')
+		path = os.path.join(os.path.dirname(__file__), 'tasks.html')
 		self.response.out.write(template.render(path, template_values))
 
 application = webapp.WSGIApplication(
-									[('/', MainPage)],
+									[('/tasks', MainPage),],
 									 debug=True)
-		
+
 def main():
 	run_wsgi_app(application)
 

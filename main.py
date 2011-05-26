@@ -19,12 +19,12 @@ class MainPage(webapp.RequestHandler):
 		  url = users.create_login_url(self.request.uri)
 		  url_linktext = 'Login'
 			
-		template_data = {
+		template_values = {
 			'url': url,
 			'url_linktext': url_linktext,
 			}
 		
-		path = os.path.join(os.path.dirname(__file__), 'index.html')
+		path = os.path.join(os.path.dirname(__file__), 'base_home.html')
 		self.response.out.write(template.render(path, template_values))
 		
 class HomeSetup(webapp.RequestHandler):

@@ -312,7 +312,7 @@ function add_debug(msg){
 	$("#debug").html($("#debug").html() + msg + "<br />");
 }
 
-// NOT BEING USED IN FIRST VERSIOn
+// NOT BEING USED IN FIRST VERSION
 function init_pref_icons(icon){
 	if(icon==null){
 		$(".pref-icon").each(function(){

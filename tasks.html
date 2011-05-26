@@ -1,6 +1,10 @@
-{% extends 'home/base_home.html' %}
-{% load media %}
-{% include_media "main.js" %}
+{% extends 'base_home.html' %}
+{% block scripts %}
+<script type="text/javascript" src="js/tasks.js"></script>
+{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
 
 {% block style %}
 	.task-section {
@@ -8,7 +12,6 @@
 		padding: 5px 0px 0 0px;
 		border: 1px dotted #CCC;
 		margin: 10px 0 0 0;
-		margin-top: 10px;
 		float: left;
 	}
 	.task-section h1 {
@@ -44,7 +47,6 @@
 		list-style-type: none;
 		position: relative;
 		border-top: 1px dotted #CCC;
-
 	}
 	.task-list li.claimed {
 		color: gray;
@@ -60,10 +62,10 @@
 		margin-left: 7px;
 		margin-top: -2px;
 		cursor: pointer;
-		background-image: url("{% media_url "images/box-unchecked.png" %}");
+		background-image: url("images/box-unchecked.png");
 	}
 	.task-list li .checkbox.checked{
-		background-image: url("{% media_url "images/box-checked.png" %}");
+		background-image: url("images/box-checked.png");
 	}
 	.task-list li .pref-icon {
 		float: left;
@@ -227,10 +229,10 @@
 {% endblock %}
 
 {% block endScripts %}
-	//init_pref_icons(null);
 	init_checkboxes(null);
 	init_content_edits(null);
 	init_claim_button(null);
 	init_task_remove_buttons(null);
 	init_add_remove_task_buttons();
+	//init_pref_icons(null);
 {% endblock %}

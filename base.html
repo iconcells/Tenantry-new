@@ -1,14 +1,17 @@
 <html>
 <head>
-	{% load media %}
 	<title>Tenantry.Net</title>
-	{% include_media "main.css" %}
-	{% include_media "main.js" %}
-
-	<style type="text/css">
+	<link href="/css/reset.css" rel="stylesheet" type="text/css">
+	<link href="/css/base.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="/js/jquery-1.6.min.js"></script>
+	{% block stylesheets %}
+	{% endblock %}
 	{% block style %}
 	{% endblock %}
-	</style>
+	{% block extraStyle %}
+	{% endblock %}
+	{% block scripts %}
+	{% endblock %}
 </head>
 <body>
 <div id="wrapper">

@@ -1,20 +1,26 @@
-application: TenantryNet
-version: 1.1
+application: tenantrynet
+version: 1-1
 runtime: python
 api_version: 1
 
 handlers:
-- url: /css
-  static_dir: stylesheets
-
-- url: /img
+- url: /images
   static_dir: img
 
 - url: /css
-  static_dir: css  
+  static_dir: css
 
-- url: /.*
-  script: main.py
+- url: /js
+  static_dir: js
+
+- url: /
+  script: landing.py
   
+- url: /setup/.*
+  script: setup.py
+
+- url: /home
+  script: home.py
+
 - url: /tasks
   script: tasks.py
